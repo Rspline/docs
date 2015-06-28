@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}My Site{% endblock %}</title>
+  {% block head %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="/assets/highlight.css">
+  {% endblock %}
+</head>
+<body>
+  <div class="docs-header">
+    <div class="docs-container">
+      <h1>Header</h1>
+    </div>
+  </div>
+  <div class="docs-container">
+    <div class="docs-body">
+      <main class="docs-content">
+        {% block content %}{% endblock %}
+      </main>
+      <nav class="docs-nav">
+        <p><strong>Navigation</strong></p>
+        <ul class="list-unstyled">
+          <li><a href="/">Home</a></li>
+          <li>
+            <a href="{{css.metadata.link}}">{{css.metadata.name}}</a>
+          </li>
+          <li>
+            <a href="{{components.metadata.link}}">{{components.metadata.name}}</a>
+          </li>
+        </ul>
+      </nav>
+      <aside class="docs-ads">
+        {% block sidebar %}{% endblock %}
+      </aside>
+    </div>
+  </div>
+  <div class="docs-footer">
+    <div class="docs-container">
+      <h1>footer</h1>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="/assets/anchorific.js"></script>
+  <script>
+    $('.docs-article').anchorific({position: 'prepend', anchorClass: 'docs-anchor'});
+  </script>
+</body>
+</html>

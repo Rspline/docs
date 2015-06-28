@@ -1,0 +1,201 @@
+{% macro heading(text) -%}
+<h1>{{ text }}</h1>
+<p>{{label('foobar')}}</p>
+{%- endmacro %}
+
+// Labels
+{% macro label(text) -%}
+<div>
+  <label>{{ text }}</label>
+  <p>{{kwargs.foo}}</p>
+</div>
+{%- endmacro %}
+
+// HEADINGS (h1-h6) w/ secondary heading support
+
+{% macro heading(num, text='H1', secondary='', class='') -%}
+<h{{num}}{% if class %} class="{{class}}"{% endif %}>{{text}} {% if secondary %}<small>{{secondary}}</small>{% endif %}</h{{num}}>
+{%- endmacro %}
+
+{% macro h1(text='H1', secondary='', class='') -%}
+{{ heading('1',text,secondary,class) }}
+{%- endmacro %}
+
+{% macro h2(text='H2', secondary='', class='') -%}
+{{ heading('2',text,secondary,class) }}
+{%- endmacro %}
+
+{% macro h3(text='H3', secondary='', class='') -%}
+{{ heading('3',text,secondary,class) }}
+{%- endmacro %}
+
+{% macro h4(text='H4', secondary='', class='') -%}
+{{ heading('4',text,secondary,class) }}
+{%- endmacro %}
+
+{% macro h5(text='H5', secondary='', class='') -%}
+{{ heading('5',text,secondary,class) }}
+{%- endmacro %}
+
+{% macro h6(text='H6', secondary='', class='') -%}
+{{ heading('6',text,secondary,class) }}
+{%- endmacro %}
+
+{% macro tooltip(text='') -%}
+tooltip="{{text}}"
+{%- endmacro %}
+
+// Buttons
+
+
+{% macro btn(text='Button', option='default', type='btn', size='', class='') -%}
+{% if type == 'a' -%}
+<a class="btn {{"btn-" + option}}{% if size %} {{"btn-" + size}}{% endif %}{% if class %} {{class}}{% endif %}" href="#" role="button">{{text}}</a>
+{%- elif type == 'input' -%}
+<input class="btn {{"btn-" + option}}{% if size %} {{"btn-" + size}}{% endif %}{% if class %} {{class}}{% endif %}" type="button" value="{{text}}">
+{%- elif type == 'submit' -%}
+<input class="btn {{"btn-" + option}}{% if size %} {{"btn-" + size}}{% endif %}{% if class %} {{class}}{% endif %}" type="submit" value="{{text}}">
+{% else -%}
+<button class="btn {{"btn-" + option}}{% if size %} {{"btn-" + size}}{% endif %}{% if class %} {{class}}{% endif %}" type="submit">{{text}}</button>
+{%- endif %}
+{%- endmacro %}
+
+{% macro btnGroup(items=['Left','Middle','Right'], option='default', size='', type='btn', class='', ariaLabel='') -%}
+<div class="btn-group" role="group"{% if ariaLabel %} aria-label="..."{% endif %}>
+  {%- for item in items %}
+  {{ btn(item,option=option,type=type,size=size,class=class) }}
+  {%- endfor %}
+</div>
+{%- endmacro %}
+
+// Dropdowns
+
+{% macro dropdown(text='Dropdown', inverse='', open='', class='') -%}
+<div class="{% if inverse %}dropup{% else %}dropdown{% endif %}">
+  <button class="btn btn-default dropdown-toggle {{class}}{% if open %} clearfix open{% endif %}" type="button" data-toggle="dropdown" aria-haspopup="true"{% if open %} aria-expanded="true" {% endif %}>
+    {{text}}
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li class="dropdown-header">Dropdown header</li>
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li class="dropdown-header">Dropdown header</li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+{%- endmacro %}
+
+// Tables
+
+{% macro table(class, example='false', contextual='') -%}
+<table class="table{% if class %} {{class}}{% endif %}">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    {%- if example == 'false' -%}
+    <tr {% if contextual %}class="active"{% endif %}>
+      <th scope="row">2</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr {% if contextual %}class="success"{% endif %}>
+      <th scope="row">3</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    {% if contextual -%}
+    <tr {% if contextual %}class="info"{% endif %}>
+      <th scope="row">4</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+    <tr {% if contextual %}class="warning"{% endif %}>
+      <th scope="row">5</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr {% if contextual %}class="danger"{% endif %}>
+      <th scope="row">6</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+    {%- endif %}
+    {%- endif %}
+  </tbody>
+</table>
+{%- endmacro %}
+
+{% macro navbar(class) -%}
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+{%- endmacro %}
