@@ -2,12 +2,12 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}My Site{% endblock %}</title>
-  {% block head %}
+  <title>My Page</title>
+  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="stylesheet" href="/assets/highlight.css">
-  {% endblock %}
+  <link rel="stylesheet" href="http://eddywashere.github.io/docs/assets/style.css">
+  <link rel="stylesheet" href="http://eddywashere.github.io/docs/assets/highlight.css">
+  
 </head>
 <body>
   <div class="docs-header">
@@ -18,22 +18,26 @@
   <div class="docs-container">
     <div class="docs-body">
       <main class="docs-content">
-        {% block content %}{% endblock %}
+        
+<h1 id="hello-world">Hello world</h1>
+<p>This is the home page</p>
+
+
       </main>
       <nav class="docs-nav">
         <p><strong>Navigation</strong></p>
         <ul class="list-unstyled">
-          <li><a href="/">Home</a></li>
+          <li><a href="http://eddywashere.github.io/docs/">Home</a></li>
           <li>
-            <a href="{{css.metadata.link}}">{{css.metadata.name}}</a>
+            <a href="http://eddywashere.github.io/docs//css">Base CSS</a>
           </li>
           <li>
-            <a href="{{components.metadata.link}}">{{components.metadata.name}}</a>
+            <a href="http://eddywashere.github.io/docs//components">UI Components</a>
           </li>
         </ul>
       </nav>
       <aside class="docs-ads">
-        {% block sidebar %}{% endblock %}
+        
       </aside>
     </div>
   </div>
@@ -43,7 +47,7 @@
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script src="/assets/anchorific.js"></script>
+  <script src="http://eddywashere.github.io/docs/assets/anchorific.js"></script>
   <script>
     $('.docs-article').anchorific({position: 'prepend', anchorClass: 'docs-anchor'});
   </script>
