@@ -3,7 +3,7 @@ var del = require('del');
 var gulp = require('gulp');
 var connect = require('gulp-connect');
 var build = require('./build');
-// var ghPages = require('gulp-gh-pages');
+var ghPages = require('gulp-gh-pages');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 
@@ -42,10 +42,10 @@ var scripts = function() {
 gulp.task('scripts', ['clean'], scripts);
 gulp.task('scripts-watch', scripts);
 
-// gulp.task('deploy', function() {
-//   return gulp.src('./build/**/*')
-//     .pipe(ghPages());
-// });
+gulp.task('deploy', function() {
+  return gulp.src('./build/**/*')
+    .pipe(ghPages());
+});
 
 gulp.task('server', function () {
   connect.server({

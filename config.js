@@ -1,8 +1,8 @@
 var config = {
   production: {
-    baseUrl: process.env.BASE_URL || '', // '' for relative links
+    baseUrl: process.env.BASE_URL || 'http://eddywashere.github.io/docs', // '' for relative links
     site: {
-      url: process.env.SITE_URL || 'http://example.com', // full site url
+      url: process.env.SITE_URL || 'http://eddywashere.github.io/docs', // full site url
       title: 'Docs Site',
       comments: true,
       disqus: process.env.DISQUS || 'example',

@@ -5,8 +5,8 @@
   <title>{% block title %}My Site{% endblock %}</title>
   {% block head %}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/assets/style.css">
-  <link rel="stylesheet" href="/assets/highlight.css">
+  <link rel="stylesheet" href="{{baseUrl}}/assets/style.css">
+  <link rel="stylesheet" href="{{baseUrl}}/assets/highlight.css">
   {% endblock %}
 </head>
 <body>
@@ -23,12 +23,12 @@
       <nav class="docs-nav">
         <p><strong>Navigation</strong></p>
         <ul class="list-unstyled">
-          <li><a href="/">Home</a></li>
+          <li><a href="{{baseUrl}}/">Home</a></li>
           <li>
-            <a href="{{css.metadata.link}}">{{css.metadata.name}}</a>
+            <a href="{{baseUrl}}/{{css.metadata.link}}">{{css.metadata.name}}</a>
           </li>
           <li>
-            <a href="{{components.metadata.link}}">{{components.metadata.name}}</a>
+            <a href="{{baseUrl}}/{{components.metadata.link}}">{{components.metadata.name}}</a>
           </li>
         </ul>
       </nav>
@@ -43,7 +43,7 @@
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script src="/assets/anchorific.js"></script>
+  <script src="{{baseUrl}}/assets/anchorific.js"></script>
   <script>
     $('.docs-article').anchorific({position: 'prepend', anchorClass: 'docs-anchor'});
   </script>
