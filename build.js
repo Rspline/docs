@@ -74,7 +74,7 @@ module.exports = function (production) {
         refer: false,
         metadata: {
           name: 'UI Components',
-          link: '/components'
+          link: 'components'
         }
       },
       css: {
@@ -83,7 +83,7 @@ module.exports = function (production) {
         refer: false,
         metadata: {
           name: 'Base CSS',
-          link: '/css'
+          link: 'css'
         }
       }
     }))
