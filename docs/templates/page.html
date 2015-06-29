@@ -5,13 +5,21 @@
 {% block hero %}
 <div class="jumbotron">
   <div class="container-fluid">
-    <h1>Frontend Docs</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non aliquid quisquam minus quae ipsa, officiis alias itaque impedit deleniti pariatur praesentium at dolorem voluptatum laboriosam vel commodi. Rerum, quis, tempora!</p>
-    <p><a class="btn btn-danger btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+    <h1>{{name}}</h1>
+    {% if description %}<p>{{description}}</p>{% endif %}
+    {% if heroLink %}<p><a class="btn btn-danger btn-lg" href="{{heroLink}}" role="button">{{ heroText or "Get Started"}}</a></p>{% endif %}
   </div>
 </div>
 {% endblock %}
 
 {% block content %}
 {{contents | safe}}
+{% endblock %}
+
+{% block sidebar %}
+<ul class="nav hidden-print hidden-xs hidden-sm" role="tablist">
+{% for item in collections[collection[0]] %}
+  <li><a href="{{baseUrl}}/{{item.path}}">{{item.title}}</a></li>
+{% endfor %}
+</ul>
 {% endblock %}

@@ -1,11 +1,9 @@
 ---
 title: Typography
+name: Typography
+template: collections.html
 ---
 {% import "macros/ui.html" as ui %}
-
-# Typography
-
-<hr>
 
 ## Headings
 

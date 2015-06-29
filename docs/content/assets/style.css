@@ -131,6 +131,15 @@ a:hover.anchor {
   padding: 5px 5px 5px 10px;
 }
 
+#doc-sidenav ul > li > a {
+  border-left: 2px solid transparent;
+}
+
+#doc-sidenav .nav>li>a:focus, #doc-sidenav .nav>li>a:hover{
+  background: transparent;
+  color: #e54339;
+}
+
 #doc-sidenav ul > li.active > a {
   border-left: #e54339 2px solid;
   background-color: #fff;

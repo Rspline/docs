@@ -11,15 +11,25 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li>
-          <a href="{{baseUrl}}/{{css.metadata.link}}">{{css.metadata.name}}</a>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{css.metadata.name}} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            {% for item in collections.css %}
+            <li><a href="{{baseUrl}}/{{item.path}}">{{item.title}}</a></li>
+            {% endfor %}
+          </ul>
         </li>
-        <li>
-          <a href="{{baseUrl}}/{{components.metadata.link}}">{{components.metadata.name}}</a>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{components.metadata.name}} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            {% for item in collections.components %}
+            <li><a href="{{baseUrl}}/{{item.path}}">{{item.title}}</a></li>
+            {% endfor %}
+          </ul>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <li><a href="https://github.com/eddywashere/docs">Github</a></li>
       </ul>
     </div>
   </div>

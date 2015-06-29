@@ -1,7 +1,8 @@
 ---
 title: Components
 name: UI Components
-template: collections.html
+description: A collection of custom components
+template: page.html
 section: components
 ---
 {% import "macros/ui.html" as ui %}

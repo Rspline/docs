@@ -1,6 +1,7 @@
 ---
 title: Navbar
 priority: 2
+template: collections.html
 ---
 {% import "macros/ui.html" as ui %}
 

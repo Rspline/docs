@@ -1,6 +1,7 @@
 ---
-title: Buttons
+title: Dropdowns
 priority: 1
+template: collections.html
 ---
 {% import "macros/ui.html" as ui %}
 

@@ -6,6 +6,7 @@ var highlight = require('highlight.js');
 var markdown = require('metalsmith-markdown');
 var ignore = require('metalsmith-ignore');
 var collections = require('metalsmith-collections');
+var branch = require('metalsmith-branch');
 // var htmlMinifier = require("metalsmith-html-minifier");
 var dateFilter = require('nunjucks-date-filter');
 var cons = require('consolidate');
@@ -38,7 +39,6 @@ function livereload(){
     .on('error', function(e){});
 }
 
-// TODO - reorganize these tasks
 module.exports = function (production) {
   var configData;
 
@@ -71,31 +71,37 @@ module.exports = function (production) {
       components: {
         pattern: 'components/**/*',
         sortBy: 'priority',
-        refer: false,
         metadata: {
           name: 'UI Components',
-          link: 'components'
+          link: 'components/navbar'
         }
       },
       css: {
         pattern: 'css/**/*',
         sortBy: 'priority',
-        refer: false,
         metadata: {
           name: 'Base CSS',
-          link: 'css'
+          link: 'css/typography'
         }
       }
     }))
-    .use(ignore([
-      'components/**/*.html',
-      'css/**/*.html'
-    ]))
     // end collection stuff
-    .use(permalinks({
+    .use(
+      branch(function(filename,props,i){
+        return props.collection[0];
+      }).use(permalinks({
+        pattern: ':collection/:title',
+        relative: false
+      }))
+    )
+    .use(
+      branch(function(filename,props,i){
+        return !props.collection[0];
+      }).use(permalinks({
         pattern: ':title',
         relative: false
-    }))
+      }))
+    )
     .use(templates({
       engine: 'nunjucks',
       directory: './docs/templates'

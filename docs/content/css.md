@@ -1,7 +1,8 @@
 ---
 title: CSS
 name: Base CSS
-template: collections.html
+description: Default stylings for base elements
+template: page.html
 section: css
 ---
 {% import "macros/ui.html" as ui %}

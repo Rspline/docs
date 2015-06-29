@@ -2,27 +2,31 @@
 
 {% block title %}My Page{% endblock %}
 
-{% block hero %}
-<div class="jumbotron">
-  <div class="container-fluid">
-    <h1>{{name}}</h1>
-  </div>
-</div>
-{% endblock %}
-
 {% block content %}
+<h1>{{name}}</h1>
 {{contents | safe}}
 
-<div class="docs-article">
-  {% for item in collections[section] %}
-  {{item.contents | safe}}
-  {% endfor %}
-</div>
+{% if next or previous %}
+<hr>
+<nav>
+  <ul class="pager">
+    {% if previous %}
+    <li class="previous"><a href="{{ baseUrl }}/{{previous.path | replace('/index.html$', '')}}"><span aria-hidden="true">&larr;</span> {{previous.title}}</a></li>
+    {% endif %}
+    {% if next %}
+    <li class="next"><a href="{{ baseUrl }}/{{next.path | replace('/index.html$', '')}}">{{next.title}} <span aria-hidden="true">&rarr;</span></a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
 {% endblock %}
-
 
 {% block sidebar %}
 <div id="doc-sidenav">
-  {% include "./includes/" + section + "-sidenav.html" %}
+  <ul class="nav hidden-print hidden-xs hidden-sm" role="tablist" style="margin-top: 20px;">
+  {% for item in collections[collection[0]] %}
+    <li {%if path == item.path%}class="active"{%endif%}><a href="{{baseUrl}}/{{item.path}}">{{item.title}}</a></li>
+  {% endfor %}
+  </ul>
 </div>
 {% endblock %}
