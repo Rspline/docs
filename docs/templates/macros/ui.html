@@ -145,9 +145,10 @@ tooltip="{{text}}"
 </table>
 {%- endmacro %}
 
-{% macro navbar(class) -%}
-<nav class="navbar navbar-default">
+{% macro navbar(class, inverse='false', example='false') -%}
+<nav class="navbar{% if inverse=='true' %} navbar-inverse{% else %} navbar-default{% endif %}">
   <div class="container-fluid">
+    {%- if example == 'false' -%}
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -158,7 +159,6 @@ tooltip="{{text}}"
       </button>
       <a class="navbar-brand" href="#">Brand</a>
     </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
@@ -195,7 +195,8 @@ tooltip="{{text}}"
           </ul>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+    {%- endif %}
+  </div>
 </nav>
 {%- endmacro %}
