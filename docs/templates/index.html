@@ -10,17 +10,13 @@
   {% endblock %}
 </head>
 <body>
-  <div class="docs-header">
-    <div class="docs-container">
-      <h1>Header</h1>
-    </div>
-  </div>
+  {% include './includes/topnav.html' %}
   <div class="docs-container">
     <div class="docs-body">
       <main class="docs-content">
         {% block content %}{% endblock %}
       </main>
-      <nav class="docs-nav">
+      <!-- <nav class="docs-nav">
         <p><strong>Navigation</strong></p>
         <ul class="list-unstyled">
           <li><a href="{{baseUrl}}/">Home</a></li>
@@ -31,7 +27,7 @@
             <a href="{{baseUrl}}/{{components.metadata.link}}">{{components.metadata.name}}</a>
           </li>
         </ul>
-      </nav>
+      </nav> -->
       <aside class="docs-ads">
         {% block sidebar %}{% endblock %}
       </aside>
@@ -43,6 +39,7 @@
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="{{baseUrl}}/assets/anchorific.js"></script>
   <script>
     $('.docs-article').anchorific({position: 'prepend', anchorClass: 'docs-anchor'});
