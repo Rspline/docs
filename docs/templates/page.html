@@ -7,7 +7,7 @@
   <div class="container-fluid">
     <h1>{{name}}</h1>
     {% if description %}<p>{{description}}</p>{% endif %}
-    {% if heroLink %}<p><a class="btn btn-danger btn-lg" href="{{heroLink}}" role="button">{{ heroText or "Get Started"}}</a></p>{% endif %}
+    {% if heroLink %}<p><a class="btn btn-danger btn-lg" href="{{baseUrl}}/{{heroLink}}" role="button">{{ heroText or "Get Started"}}</a></p>{% endif %}
   </div>
 </div>
 {% endblock %}
