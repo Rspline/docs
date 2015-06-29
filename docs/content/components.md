@@ -1,5 +1,6 @@
 ---
 title: Components
+name: UI Components
 template: collections.html
 section: components
 ---

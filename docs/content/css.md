@@ -1,5 +1,6 @@
 ---
 title: CSS
+name: Base CSS
 template: collections.html
 section: css
 ---

@@ -4,28 +4,24 @@ body {
   padding: 0;
 }
 
-.docs-container {
-  display: flex;
-  height: 100%; /* 1, 3 */
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: 1600px;
+.jumbotron {
+  color: #d8d8d8;
+  background: #333;
 }
 
 .container-fluid {
-  max-width: 1600px;
+  max-width: 1200px;
+}
+
+.navbar.navbar-default {
+  margin-bottom: 0;
 }
 
 .docs-header,
 .docs-footer {
-  flex: none; /* 2 */
 }
 
 .docs-body {
-  display: flex;
-  flex: 1 0 auto; /* 2 */
-  flex-direction: column;
-  padding: 0 1.5em;
 }
 
 .docs-content {
@@ -33,7 +29,6 @@ body {
 }
 
 .docs-nav {
-  order: -1;
 }
 
 .docs-nav,
@@ -92,20 +87,6 @@ pre, code {
   float: left;
 }
 
-@media (min-width: 768px) {
-  .docs-body {
-    flex-direction: row;
-  }
-  .docs-content {
-    flex: 1;
-    padding: 0 2em;
-    margin: 0;
-  }
-  .docs-nav, .docs-ads {
-    flex: 0 0 12em;
-  }
-}
-
 
 a.anchor {
   text-decoration: none;
@@ -121,51 +102,56 @@ a:hover.anchor {
 }
 
 
-.anchorific {
-  position: fixed;
+#doc-sidenav {
+  margin-left: 10px;
+  top: 20px;
 }
 
-.anchorific ul {
+#doc-sidenav a {
+  color: #666;
+}
+
+#doc-sidenav ul {
   list-style-type: none;
   padding: 0;
 }
 
-.anchorific li ul a {
+#doc-sidenav li ul a {
   list-style-type: none;
 }
 
-.anchorific li ul ul{
+#doc-sidenav li ul ul{
   list-style-type: none;
   display: none;
 }
 
-.anchorific ul li a {
+#doc-sidenav ul li a {
   display: block;
   text-decoration: none;
   padding: 5px 5px 5px 10px;
 }
 
-.anchorific ul > li.active > a {
+#doc-sidenav ul > li.active > a {
   border-left: #e54339 2px solid;
   background-color: #fff;
 }
 
-.anchorific li li.active > a {
+#doc-sidenav li li.active > a {
   border-left: #e54339 2px solid;
   margin-right: 2px;
   background-color: #fff;
 }
 
-.anchorific li.active > ul {
+#doc-sidenav li.active > ul {
   display: block;
 }
 
-.anchorific ul ul a{
-  padding-left: 20px;
+#doc-sidenav ul ul a{
+  padding-left: 30px;
 }
 
-.anchorific ul ul ul a{
-  padding-left: 30px;
+#doc-sidenav ul ul ul a{
+  padding-left: 50px;
 }
 
 .docs-anchor {
@@ -186,3 +172,4 @@ a:hover.anchor {
   right: 5px;
   bottom: 5px;
   padding: 7px 7px 7px 20px;
+}

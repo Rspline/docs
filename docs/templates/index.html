@@ -11,38 +11,24 @@
 </head>
 <body>
   {% include './includes/topnav.html' %}
-  <div class="docs-container">
-    <div class="docs-body">
-      <main class="docs-content">
+  {% block hero %}{% endblock %}
+  <div class="container-fluid">
+    <div class="row">
+      <main class="col-md-9">
         {% block content %}{% endblock %}
       </main>
-      <!-- <nav class="docs-nav">
-        <p><strong>Navigation</strong></p>
-        <ul class="list-unstyled">
-          <li><a href="{{baseUrl}}/">Home</a></li>
-          <li>
-            <a href="{{baseUrl}}/{{css.metadata.link}}">{{css.metadata.name}}</a>
-          </li>
-          <li>
-            <a href="{{baseUrl}}/{{components.metadata.link}}">{{components.metadata.name}}</a>
-          </li>
-        </ul>
-      </nav> -->
-      <aside class="docs-ads">
+      <aside class="col-md-3">
         {% block sidebar %}{% endblock %}
       </aside>
     </div>
   </div>
-  <div class="docs-footer">
-    <div class="docs-container">
+  <div class="docs-footer container-fluid">
+    <div class="row">
       <h1>footer</h1>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="{{baseUrl}}/assets/anchorific.js"></script>
-  <script>
-    $('.docs-article').anchorific({position: 'prepend', anchorClass: 'docs-anchor'});
-  </script>
+  <script src="{{baseUrl}}/assets/script.js"></script>
 </body>
 </html>

@@ -2,6 +2,16 @@
 
 {% block title %}My Page{% endblock %}
 
+{% block hero %}
+<div class="jumbotron">
+  <div class="container">
+    <h1>Frontend Docs</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non aliquid quisquam minus quae ipsa, officiis alias itaque impedit deleniti pariatur praesentium at dolorem voluptatum laboriosam vel commodi. Rerum, quis, tempora!</p>
+    <p><a class="btn btn-danger btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+  </div>
+</div>
+{% endblock %}
+
 {% block content %}
 {{contents | safe}}
 {% endblock %}
