@@ -12,6 +12,10 @@ body {
   max-width: 1600px;
 }
 
+.container-fluid {
+  max-width: 1600px;
+}
+
 .docs-header,
 .docs-footer {
   flex: none; /* 2 */
